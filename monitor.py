@@ -27,7 +27,7 @@ def load_communities():
 def get_quests(subdomain):
     try:
         url = f'https://api.zealy.io/communities/{subdomain}/quests'
-        headers = {'Authorization': f'Bearer {ZEALY_TOKEN}'}
+        headers = {'Cookie': f'access_token={ZEALY_TOKEN}'}
         response = requests.get(url, headers=headers, timeout=10)
         if response.status_code == 200:
             data = response.json()
